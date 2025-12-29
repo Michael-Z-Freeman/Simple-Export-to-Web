@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+.vscode/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages
+packages/
+!packages/repositories.config
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Windows image base files
+Thumbs.db
+ehthumbs.db
