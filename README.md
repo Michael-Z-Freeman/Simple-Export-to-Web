@@ -1,3 +1,5 @@
+<img width="750" height="463" alt="thumb" src="https://github.com/user-attachments/assets/190cf0ac-5d97-4197-9ccb-3c43a6bc98f2" />
+
 Exporter for Playnite.
 
 Scratching a personal itch. Just wanted a simple way to export to a web page.
