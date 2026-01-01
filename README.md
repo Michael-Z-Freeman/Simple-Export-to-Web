@@ -1,4 +1,4 @@
-<img width="750" height="463" alt="thumb" src="https://github.com/user-attachments/assets/190cf0ac-5d97-4197-9ccb-3c43a6bc98f2" />
+<img width="150" height="93" alt="thumb" src="https://github.com/user-attachments/assets/646476b7-2aa3-4e70-b405-1e3ba889849a" />
 
 Exporter for Playnite.
 
