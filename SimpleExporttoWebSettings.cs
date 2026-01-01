@@ -1,10 +1,11 @@
-﻿using Playnite.SDK;
+using Playnite.SDK;
 using Playnite.SDK.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SimpleExporttoWeb
 {
@@ -33,6 +34,8 @@ namespace SimpleExporttoWeb
             }
         }
 
+        public ICommand SelectOutputFolderCommand { get; private set; }
+
         public SimpleExporttoWebSettingsViewModel(SimpleExporttoWeb plugin)
         {
             // Injecting your plugin instance is required for Save/Load method because Playnite saves data to a location based on what plugin requested the operation.
@@ -50,6 +53,15 @@ namespace SimpleExporttoWeb
             {
                 Settings = new SimpleExporttoWebSettings();
             }
+
+            SelectOutputFolderCommand = new RelayCommand(() =>
+            {
+                var selectedDir = plugin.PlayniteApi.Dialogs.SelectFolder();
+                if (!string.IsNullOrEmpty(selectedDir))
+                {
+                    Settings.OutputDirectory = selectedDir;
+                }
+            });
         }
 
         public void BeginEdit()
@@ -79,6 +91,34 @@ namespace SimpleExporttoWeb
             // List of errors is presented to user if verification fails.
             errors = new List<string>();
             return true;
+        }
+    }
+
+    public class RelayCommand : ICommand
+    {
+        private readonly Action _execute;
+        private readonly Func<bool> _canExecute;
+
+        public RelayCommand(Action execute, Func<bool> canExecute = null)
+        {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute == null || _canExecute();
+        }
+
+        public void Execute(object parameter)
+        {
+            _execute();
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
     }
 }
