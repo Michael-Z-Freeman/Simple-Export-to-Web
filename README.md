@@ -2,4 +2,4 @@ Exporter for Playnite.
 
 Scratching a personal itch. Just wanted a simple way to export to a web page.
 
-![screenshot](https://github.com/user-attachments/assets/f7c924aa-3795-4716-9543-c8ee462c220b)
+<img width="750" height="463" alt="Screenshot 2026-01-01 at 12 46 14" src="https://github.com/user-attachments/assets/ca12543f-f2d4-44bb-b8f5-2414aff72aaa" />
