@@ -69,7 +69,8 @@ namespace SimpleExporttoWeb
             html.AppendLine("        .game-card { width: 200px; margin: 15px; background: #2a2a2a; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.5); transition: transform 0.2s; }");
             html.AppendLine("        .game-card:hover { transform: scale(1.05); }");
             html.AppendLine("        .game-card img { width: 100%; height: 280px; object-fit: cover; }");
-            html.AppendLine("        .game-card .title { padding: 10px; text-align: center; font-size: 14px; font-weight: bold; }");
+            html.AppendLine("        .game-card .title { padding: 10px 10px 0 10px; text-align: center; font-size: 14px; font-weight: bold; }");
+            html.AppendLine("        .game-card .source { padding: 0 10px 10px 10px; text-align: center; font-size: 12px; color: #aaa; }");
             html.AppendLine("    </style>");
             html.AppendLine("</head>");
             html.AppendLine("<body>");
@@ -104,6 +105,8 @@ namespace SimpleExporttoWeb
                     html.AppendLine("        <div style=\"height: 280px; background: #333; display: flex; align-items: center; justify-content: center; color: #666;\">No Cover</div>");
                 }
                 html.AppendLine($"        <div class=\"title\">{game.Name}</div>");
+                var sourceName = game.Source?.Name ?? "PC";
+                html.AppendLine($"        <div class=\"source\">{sourceName}</div>");
                 html.AppendLine("    </div>");
             }
 
